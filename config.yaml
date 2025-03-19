@@ -1,0 +1,11 @@
+i/o: 
+  checkpoint_path: "" # loading a checkpoint assuming that you want to resume your training 
+  dataset_path: ""  # the path where you keep the shards for fineweb 
+  log_path: "" # logger
+  resumed_training: False # resuming a previous training 
+
+
+wandb: 
+  is_logging: False # if you want to log your run in wandb
+  project_name : "" # wandb project name 
+  id: "" # leave an empty string if you don't use any id 
