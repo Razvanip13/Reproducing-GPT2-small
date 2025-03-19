@@ -1,8 +1,8 @@
 # Reproducing-GPT2-mini
 
 <p align="center">
-    <img src="assets/joke.png" alt="trainAnLLM" width="400" height="500">
-    <img src="assets/understand.png" alt="understand" width="600" height="500">
+    <img src="assets/joke.png" alt="trainAnLLM" width="300" height="350">
+    <img src="assets/understand.png" alt="understand" width="400" height="350">
 </p>
 
 Large Language Models (LLMs) can seem like dark magic. The idea of training a model like GPT2 might feel overwhelming, especially with all the hype and complexity surrounding the newest enterprise models. However, the best way to understand LLMs is to build one yourself.
