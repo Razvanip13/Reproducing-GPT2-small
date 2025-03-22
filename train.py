@@ -5,8 +5,8 @@ from torch.distributed import init_process_group, destroy_process_group
 from torch.nn.parallel import DistributedDataParallel as DDP
 import torch.distributed as dist
 import tiktoken 
-from refactored_data_loader import DataLoaderLite
-from refactored_gpt2 import GPT, GPTConfig
+from data_loader import DataLoaderLite
+from gpt2 import GPT, GPTConfig
 import math 
 from hellaswag import render_example, iterate_examples
 import time  
