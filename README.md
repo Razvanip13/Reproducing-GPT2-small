@@ -28,10 +28,17 @@ We split the 10B tokens into shards and we load them gradually during the traini
 
 ## HellaSwag
 
-HellaSwag provides a smooth evaluation and "early signals" (it slowly improves even for small models like ours). 
 
-During the training, HellaSwag will be checked periodically. For each sample, we gradually shift tokens to compute the loss only over the candidate completion parts of the possible options. The option with the lowest loss will be selected.
+HellaSwag offers a smooth evaluation signal and provides early indicators of progress, even for smaller models like ours.
 
+During training, we periodically evaluate on HellaSwag. For each example, we shift the tokens so that the model’s loss is computed only over the candidate continuation portion of each option. The option with the lowest loss is then selected as the model’s prediction.
+
+<p align="center">
+<figure align="center">
+    <img src="assets/hellaswag_example.png" alt="understand" width="700" height="350">
+    <figcaption>HellaSwag Example from Andrej Karpathy's video lecture</figcaption>
+</figure>
+</p>
 
 ## Pre-training
 
@@ -64,11 +71,11 @@ The [final weights](https://huggingface.co/Razvanip/nanoGPT2-124m) can be downlo
 
 ## Some final notes
 
-I had a lot of fun reimplementing GPT2 from scratch and I definitely learned more about LLMs from an experimental point of view :)  (especially optimization tricks). I wholeheartedly encourage everyone to watch Andrej Karpathy's [video](https://www.youtube.com/watch?v=l8pRSuU81PU) (and his other golden gem videos) and try to reproduce it yourselves. This is an exercise that everyone should do at least once if they want to become better Research Engineers. 
+I had a lot of fun reimplementing GPT2 from scratch and I definitely learned more about LLMs from an experimental point of view :)  (especially optimization tricks). I wholeheartedly encourage everyone to watch Andrej Karpathy's [video](https://www.youtube.com/watch?v=l8pRSuU81PU) (and his other golden gem videos) and try to reproduce GPT2 yourselves. It's a good exercise for those who want to become Research Engineers. 
 
 LLMs are definitely not a job for a single person: there a lot of aspects during the process of pretraining which cannot always be handled by one person (no longer surprised why there are over 50 names for every new LLM release).
 
-After finishing this project, I feel really excited to reproduce another one. For the next project, we might explore some VLMs. 
+For the next project, we might explore some VLMs. 
 
 I feel really grateful to Andrej Karpathy for all the work he does in the AI commumity. His lectures turned my knowledge about LLMs from a blackbox to something that I can grasp and experiment with on my own. In just two months, he became one of my favourite figures in the AI field ^^.
 
