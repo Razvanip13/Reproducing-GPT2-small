@@ -64,11 +64,16 @@ The [final weights](https://huggingface.co/Razvanip/nanoGPT2-124m) can be downlo
 
 ## Some final notes
 
-I had a lot of fun reimplementing GPT2 from scratch and I definitely learned more about LLMs from an experimental point of view :)  (especially optimization tricks). I wholeheartedly encourage everyone to watch Andrej Karpathy's [video](https://www.youtube.com/watch?v=l8pRSuU81PU) and try to reproduce it yourselves. This is an exercise that everyone should do at least once if they want to become better Research Engineers. 
+I had a lot of fun reimplementing GPT2 from scratch and I definitely learned more about LLMs from an experimental point of view :)  (especially optimization tricks). I wholeheartedly encourage everyone to watch Andrej Karpathy's [video](https://www.youtube.com/watch?v=l8pRSuU81PU) (and his other golden gem videos) and try to reproduce it yourselves. This is an exercise that everyone should do at least once if they want to become better Research Engineers. 
 
 LLMs are definitely not a job for a single person: there a lot of aspects during the process of pretraining which cannot always be handled by one person (no longer surprised why there are over 50 names for every new LLM release).
 
 After finishing this project, I feel really excited to reproduce another one. For the next project, we might explore some VLMs. 
 
+I feel really grateful to Andrej Karpathy for all the work he does in the AI commumity. His lectures turned my knowledge about LLMs from a blackbox to something that I can grasp and experiment with on my own. In just two months, he became one of my favourite figures in the AI field ^^.
+
 ## Requirements 
 
+```
+pip install requirements.txt
+```
