@@ -24,6 +24,8 @@ FineWeb-Edu is a high-quality dataset curated for pretraining large language mod
     <img src="assets/fineweb.png" alt="understand" width="700" height="350">
 </p>
 
+We split the 10B tokens into shards and we load them gradually during the training in the data loader. 
+
 ## HellaSwag
 
 HellaSwag provides a smooth evaluation and "early signals" (it slowly improves even for small models like ours). 
@@ -35,13 +37,38 @@ During the training, HellaSwag will be checked periodically. For each sample, we
 
 For pre-training, we used the same architecture size and hyper-parameters as presented in the [GPT3 paper](https://arxiv.org/pdf/2005.14165) (apparently GPT3 has more information regarding the experimental methodology than the original GPT2 paper). 
 
-We ran the experiment on an RTX 4090 for about 48 hours on a cloud provider similar to Google Cloud Platform (GCP) and Amazon Web Services (AWS). 
+We ran the experiment on an RTX 4090 for about 48 hours on a cloud provider similar to Google Cloud Platform (GCP) and Amazon Web Services (AWS).  We monitored the loss as well as the norm to make sure that the network is stable during training. 
+
+Since the training can take a lot of time, we implemented a checkpoint feature to resume the training. While resuming a checkpoint, we load the model and the optimizer state dictionaries. At the same time, the data loader iterates through the shards until it reaches the position of the next batch with respect to the current step. We monitor the training by logging the data periodically in Weights & Biases. 
+
+There is a config.yaml file where you can set up the path to the last checkpoint, the path to the data shards and  the parameters for wandb.
+
+After 19k steps, we have the following results:
+ 
+* Min Train Loss: 2.908273
+* Min Validation Loss: 3.0283
+* Max Hellaswag eval: 0.3059
+
+The [final weights](https://huggingface.co/Razvanip/nanoGPT2-124m) can be downloaded in the HuggingFace hub 🤗
+
+<p align="center">
+    <img src="assets/hellaswag.png" alt="understand" width="800" height="300">
+</p>
+
+
 
 ## TODOs
 
-* Post-train the current model with OpenAssistant dataset
+* Post-train the current model with OpenAssistant dataset to execute commands. 
+* Optimize the training process through GPU parallelization 
 
 ## Some final notes
+
+I had a lot of fun reimplementing GPT2 from scratch and I definitely learned more about LLMs from an experimental point of view :)  (especially optimization tricks). I wholeheartedly encourage everyone to watch Andrej Karpathy's [video](https://www.youtube.com/watch?v=l8pRSuU81PU) and try to reproduce it yourselves. This is an exercise that everyone should do at least once if they want to become better Research Engineers. 
+
+LLMs are definitely not a job for a single person: there a lot of aspects during the process of pretraining which cannot always be handled by one person (no longer surprised why there are over 50 names for every new LLM release).
+
+After finishing this project, I feel really excited to reproduce another one. For the next project, we might explore some VLMs. 
 
 ## Requirements 
 
