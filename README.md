@@ -19,7 +19,7 @@ For a visual interpretation of GPT2-small, explore the following [link](https://
 
 Unlike the original paper, which used [CommonCrawl](https://commoncrawl.org/) - dataset known for its large size but also significant noise—we prioritize data quality over quantity by using [FineWeb-edu](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1).
 
-FineWeb-Edu is a high-quality dataset curated for pretraining large language models (LLMs), focusing on educational content. For nanoGPT-mini we use FineWeb-Edu-10B. The script for preparing the shards (fineweb.py) is exactly the same like in the [build nanoGPT](https://github.com/karpathy/build-nanogpt) project.
+FineWeb-Edu is a high-quality dataset curated for pretraining large language models (LLMs), focusing on educational content. For GPT2-small we use FineWeb-Edu-10B. The script for processing the shards (fineweb.py) is exactly the same like the one in the [build nanoGPT](https://github.com/karpathy/build-nanogpt) project.
 <p align="center">
     <img src="assets/fineweb.png" alt="understand" width="700" height="350">
 </p>
@@ -29,7 +29,7 @@ We split the 10B tokens into shards and we load them gradually during the traini
 ## HellaSwag
 
 
-HellaSwag offers a smooth evaluation signal and provides early indicators of progress, even for smaller models like ours.
+[HellaSwag](https://arxiv.org/pdf/1905.07830) offers a smooth evaluation signal and provides early indicators of progress, even for smaller models like ours.
 
 During training, we periodically evaluate on HellaSwag. For each example, we shift the tokens so that the model’s loss is computed only over the candidate continuation portion of each option. The option with the lowest loss is then selected as the model’s prediction.
 

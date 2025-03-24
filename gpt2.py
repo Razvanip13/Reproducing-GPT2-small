@@ -57,7 +57,7 @@ class MLP(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.c_fc = nn.Linear(config.n_embd, 4 * config.n_embd)
-        self.gelu = nn.GELU(approximate='tanh') # we stick to the original implementation; they used an approximation
+        self.gelu = nn.GELU(approximate='tanh') # we stick to the original implementation; they used an approximation of GELU in GPT2
         #GELU is supposed to handle the dead ReLU (because it always computes a local gradient)
         self.c_proj = nn.Linear(4 * config.n_embd, config.n_embd)
         self.c_proj.NANOGPT_SCALE_INIT = 1
