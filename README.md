@@ -66,8 +66,9 @@ The [final weights](https://huggingface.co/Razvanip/nanoGPT2-124m) can be downlo
 
 ## TODOs
 
-* Post-train the current model with OpenAssistant dataset to execute commands. 
+* Post-train the current model with [OpenAssistant](https://huggingface.co/datasets/OpenAssistant/oasst2) dataset to execute commands. 
 * Optimize the training process through GPU parallelization 
+* Add some additional notes I collected during the project in the code files. 
 
 ## Some final notes
 
